@@ -263,52 +263,87 @@ FC_GlyphData* FC_SetGlyphData(FC_Font* font, Uint32 codepoint, FC_GlyphData glyp
 
 // Rendering
 
-FC_Rect FC_Draw(FC_Font* font, FC_Target* dest, float x, float y, const char* formatted_text, ...);
-FC_Rect FC_DrawAlign(FC_Font* font, FC_Target* dest, float x, float y, FC_AlignEnum align, const char* formatted_text, ...);
-FC_Rect FC_DrawScale(FC_Font* font, FC_Target* dest, float x, float y, FC_Scale scale, const char* formatted_text, ...);
-FC_Rect FC_DrawColor(FC_Font* font, FC_Target* dest, float x, float y, SDL_Color color, const char* formatted_text, ...);
-FC_Rect FC_DrawEffect(FC_Font* font, FC_Target* dest, float x, float y, FC_Effect effect, const char* formatted_text, ...);
+FC_Rect FC_Draw(FC_Font* font, FC_Target* dest, float x, float y, const char* text);
+FC_Rect FC_DrawAlign(FC_Font* font, FC_Target* dest, float x, float y, FC_AlignEnum align, const char* text);
+FC_Rect FC_DrawScale(FC_Font* font, FC_Target* dest, float x, float y, FC_Scale scale, const char* text);
+FC_Rect FC_DrawColor(FC_Font* font, FC_Target* dest, float x, float y, SDL_Color color, const char* text);
+FC_Rect FC_DrawEffect(FC_Font* font, FC_Target* dest, float x, float y, FC_Effect effect, const char* text);
 
-FC_Rect FC_DrawBox(FC_Font* font, FC_Target* dest, FC_Rect box, const char* formatted_text, ...);
-FC_Rect FC_DrawBoxAlign(FC_Font* font, FC_Target* dest, FC_Rect box, FC_AlignEnum align, const char* formatted_text, ...);
-FC_Rect FC_DrawBoxScale(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Scale scale, const char* formatted_text, ...);
-FC_Rect FC_DrawBoxColor(FC_Font* font, FC_Target* dest, FC_Rect box, SDL_Color color, const char* formatted_text, ...);
-FC_Rect FC_DrawBoxEffect(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Effect effect, const char* formatted_text, ...);
+FC_Rect FC_DrawBox(FC_Font* font, FC_Target* dest, FC_Rect box, const char* text);
+FC_Rect FC_DrawBoxAlign(FC_Font* font, FC_Target* dest, FC_Rect box, FC_AlignEnum align, const char* text);
+FC_Rect FC_DrawBoxScale(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Scale scale, const char* text);
+FC_Rect FC_DrawBoxColor(FC_Font* font, FC_Target* dest, FC_Rect box, SDL_Color color, const char* text);
+FC_Rect FC_DrawBoxEffect(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Effect effect, const char* text);
 
-FC_Rect FC_DrawColumn(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, const char* formatted_text, ...);
-FC_Rect FC_DrawColumnAlign(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_AlignEnum align, const char* formatted_text, ...);
-FC_Rect FC_DrawColumnScale(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Scale scale, const char* formatted_text, ...);
-FC_Rect FC_DrawColumnColor(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, SDL_Color color, const char* formatted_text, ...);
-FC_Rect FC_DrawColumnEffect(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Effect effect, const char* formatted_text, ...);
+FC_Rect FC_DrawColumn(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, const char* text);
+FC_Rect FC_DrawColumnAlign(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_AlignEnum align, const char* text);
+FC_Rect FC_DrawColumnScale(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Scale scale, const char* text);
+FC_Rect FC_DrawColumnColor(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, SDL_Color color, const char* text);
+FC_Rect FC_DrawColumnEffect(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Effect effect, const char* text);
+
+
+// Varargs Rendering
+
+FC_Rect FC_Drawf(FC_Font* font, FC_Target* dest, float x, float y, const char* formatted_text, ...);
+FC_Rect FC_DrawAlignf(FC_Font* font, FC_Target* dest, float x, float y, FC_AlignEnum align, const char* formatted_text, ...);
+FC_Rect FC_DrawScalef(FC_Font* font, FC_Target* dest, float x, float y, FC_Scale scale, const char* formatted_text, ...);
+FC_Rect FC_DrawColorf(FC_Font* font, FC_Target* dest, float x, float y, SDL_Color color, const char* formatted_text, ...);
+FC_Rect FC_DrawEffectf(FC_Font* font, FC_Target* dest, float x, float y, FC_Effect effect, const char* formatted_text, ...);
+
+FC_Rect FC_DrawBoxf(FC_Font* font, FC_Target* dest, FC_Rect box, const char* formatted_text, ...);
+FC_Rect FC_DrawBoxAlignf(FC_Font* font, FC_Target* dest, FC_Rect box, FC_AlignEnum align, const char* formatted_text, ...);
+FC_Rect FC_DrawBoxScalef(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Scale scale, const char* formatted_text, ...);
+FC_Rect FC_DrawBoxColorf(FC_Font* font, FC_Target* dest, FC_Rect box, SDL_Color color, const char* formatted_text, ...);
+FC_Rect FC_DrawBoxEffectf(FC_Font* font, FC_Target* dest, FC_Rect box, FC_Effect effect, const char* formatted_text, ...);
+
+FC_Rect FC_DrawColumnf(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, const char* formatted_text, ...);
+FC_Rect FC_DrawColumnAlignf(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_AlignEnum align, const char* formatted_text, ...);
+FC_Rect FC_DrawColumnScalef(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Scale scale, const char* formatted_text, ...);
+FC_Rect FC_DrawColumnColorf(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, SDL_Color color, const char* formatted_text, ...);
+FC_Rect FC_DrawColumnEffectf(FC_Font* font, FC_Target* dest, float x, float y, Uint16 width, FC_Effect effect, const char* formatted_text, ...);
 
 
 // Getters
 
 FC_FilterEnum FC_GetFilterMode(FC_Font* font);
 Uint16 FC_GetLineHeight(FC_Font* font);
-Uint16 FC_GetHeight(FC_Font* font, const char* formatted_text, ...);
-Uint16 FC_GetWidth(FC_Font* font, const char* formatted_text, ...);
+Uint16 FC_GetHeight(FC_Font* font, const char* text);
+Uint16 FC_GetWidth(FC_Font* font, const char* text);
 
 // Returns a 1-pixel wide box in front of the character in the given position (index)
-FC_Rect FC_GetCharacterOffset(FC_Font* font, Uint16 position_index, int column_width, const char* formatted_text, ...);
-Uint16 FC_GetColumnHeight(FC_Font* font, Uint16 width, const char* formatted_text, ...);
+FC_Rect FC_GetCharacterOffset(FC_Font* font, Uint16 position_index, int column_width, const char* text);
+Uint16 FC_GetColumnHeight(FC_Font* font, Uint16 width, const char* text);
 
-int FC_GetAscent(FC_Font* font, const char* formatted_text, ...);
-int FC_GetDescent(FC_Font* font, const char* formatted_text, ...);
+int FC_GetAscent(FC_Font* font, const char* text);
+int FC_GetDescent(FC_Font* font, const char* text);
 int FC_GetBaseline(FC_Font* font);
 int FC_GetSpacing(FC_Font* font);
 int FC_GetLineSpacing(FC_Font* font);
 Uint16 FC_GetMaxWidth(FC_Font* font);
 SDL_Color FC_GetDefaultColor(FC_Font* font);
 
-FC_Rect FC_GetBounds(FC_Font* font, float x, float y, FC_AlignEnum align, FC_Scale scale, const char* formatted_text, ...);
+FC_Rect FC_GetBounds(FC_Font* font, float x, float y, FC_AlignEnum align, FC_Scale scale, const char* text);
 
 Uint8 FC_InRect(float x, float y, FC_Rect input_rect);
 // Given an offset (x,y) from the text draw position (the upper-left corner), returns the character position (UTF-8 index)
-Uint16 FC_GetPositionFromOffset(FC_Font* font, float x, float y, int column_width, FC_AlignEnum align, const char* formatted_text, ...);
+Uint16 FC_GetPositionFromOffset(FC_Font* font, float x, float y, int column_width, FC_AlignEnum align, const char* text);
 
 // Returns the number of characters in the new wrapped text written into `result`.
-int FC_GetWrappedText(FC_Font* font, char* result, int max_result_size, Uint16 width, const char* formatted_text, ...);
+int FC_GetWrappedText(FC_Font* font, char* result, int max_result_size, Uint16 width, const char* text);
+
+
+// Varargs Getters
+
+Uint16 FC_GetHeightf(FC_Font* font, const char* formatted_text, ...);
+Uint16 FC_GetWidthf(FC_Font* font, const char* formatted_text, ...);
+FC_Rect FC_GetCharacterOffsetf(FC_Font* font, Uint16 position_index, int column_width, const char* formatted_text, ...);
+Uint16 FC_GetColumnHeightf(FC_Font* font, Uint16 width, const char* formatted_text, ...);
+int FC_GetAscentf(FC_Font* font, const char* formatted_text, ...);
+int FC_GetDescentf(FC_Font* font, const char* formatted_text, ...);
+FC_Rect FC_GetBoundsf(FC_Font* font, float x, float y, FC_AlignEnum align, FC_Scale scale, const char* formatted_text, ...);
+Uint16 FC_GetPositionFromOffsetf(FC_Font* font, float x, float y, int column_width, FC_AlignEnum align, const char* formatted_text, ...);
+int FC_GetWrappedTextf(FC_Font* font, char* result, int max_result_size, Uint16 width, const char* formatted_text, ...);
+
 
 // Setters
 
